@@ -22,4 +22,4 @@ Le paramètre `merge: deep` est essentiel pour le bon fonctionnement du site !
 
 ### Exemple
 
-(Réseau Excellence)[https://www.reseauexcellence.fr/fr/organisations/categories/type-dorganisation/entreprises-du-patrimoine-vivant/]
+[Réseau Excellence](https://www.reseauexcellence.fr/fr/organisations/categories/type-dorganisation/entreprises-du-patrimoine-vivant/)
