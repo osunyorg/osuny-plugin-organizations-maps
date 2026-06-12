@@ -14,8 +14,8 @@ Dans `config/_default/config.yaml` :
 ```
 _merge: deep
 theme: 
-  - osuny
   - osuny-plugin-organizations-maps
+  - osuny
 ```
 
 Le paramètre `merge: deep` est essentiel pour le bon fonctionnement du site !
