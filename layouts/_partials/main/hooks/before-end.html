@@ -1,0 +1,28 @@
+{{ $is_organizations_section := and (eq .Type "organizations") (eq .Kind "section") }}
+{{ $is_organizations_category := and (eq .Type "organizations_categories") (eq .Kind "term") }}
+
+{{ if or $is_organizations_section $is_organizations_category }}
+  {{ $organizations := partial "helpers/objects/GetPathSlice" .Paginator.Pages }}
+
+  {{/*  // Show all organizations on first page  */}}
+  {{ if eq .Paginator.PageNumber 1 }}
+    {{ $organizations = partial "helpers/objects/GetPathSlice" .Pages }}
+  {{ end }}
+
+  {{ $organizations = where (default slice $organizations) "path" "ne" nil }}
+  {{ with $organizations }}
+    <div class="block block-organizations block-organizations--map">
+      <div class="organizations-map container">
+        {{/*  In map layout, all organization should have .path to get coordinates  */}}
+        {{ partial "organizations/partials/layouts/map/list.html" (dict
+          "context" $
+          "heading_level" 2
+          "html_id" ""
+          "logo_index" 1
+          "options" site.Params.organizations.index.options
+          "organizations" .
+        ) }}
+      </div>
+    </div>
+  {{ end }}
+{{ end }}
